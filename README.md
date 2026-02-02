@@ -25,6 +25,23 @@ In the output, you'll find options to open the app in a
 
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
+## Linting and formatting
+
+This project uses [ESLint](https://eslint.org/) for linting and [Prettier](https://prettier.io/) for code formatting. They run as separate tools, with `eslint-config-prettier` disabling any ESLint rules that would conflict with Prettier.
+
+**Available scripts:**
+
+- `npm run lint` — Run ESLint to check for code issues
+- `npm run format` — Format all files with Prettier
+- `npm run format:check` — Check if all files are formatted (useful for CI)
+
+**Recommended VSCode extensions:**
+
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+
+The `.vscode/settings.json` file is configured to auto-format on save using Prettier.
+
 ## Get a fresh project
 
 When you're ready, run:
