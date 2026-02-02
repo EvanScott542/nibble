@@ -1,67 +1,62 @@
-# Welcome to your Expo app 👋
+<div align="center">
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+<!-- logo goes here -->
 
-## Get started
+# nibble
 
-1. Install dependencies
+**Cook it. Film it. Share it.**
 
-   ```bash
-   npm install
-   ```
+---
 
-2. Start the app
+</div>
 
-   ```bash
-   npx expo start
-   ```
+## What is nibble?
 
-In the output, you'll find options to open the app in a
+Nibble is a recipe-sharing app built around **vertical video**. Whether you're a home cook or a professional chef, nibble puts your creations front and center.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Film yourself cooking, and nibble automatically generates a written recipe from your video — building a personal cookbook you can browse, curate, and share with others.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+<div align="center">
 
-## Linting and formatting
+🎥 &nbsp; **Film your recipe** — Short-form vertical video, made for the kitchen.
 
-This project uses [ESLint](https://eslint.org/) for linting and [Prettier](https://prettier.io/) for code formatting. They run as separate tools, with `eslint-config-prettier` disabling any ESLint rules that would conflict with Prettier.
+📝 &nbsp; **Auto-generated recipes** — Every video becomes a step-by-step recipe, no typing required.
 
-**Available scripts:**
+📖 &nbsp; **Build your cookbook** — Your recipes live in a personal collection you can share with anyone.
 
-- `npm run lint` — Run ESLint to check for code issues
-- `npm run format` — Format all files with Prettier
-- `npm run format:check` — Check if all files are formatted (useful for CI)
+</div>
 
-**Recommended VSCode extensions:**
+---
 
-- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+## Tech Stack
 
-The `.vscode/settings.json` file is configured to auto-format on save using Prettier.
+|     |                             |                                       |
+| --- | --------------------------- | ------------------------------------- |
+| 📱  | **Expo** / **React Native** | Cross-platform iOS, Android & web     |
+| ⚛️  | **React 19**                | Latest React with concurrent features |
+| 🔷  | **TypeScript**              | Type-safe from top to bottom          |
 
-## Get a fresh project
+---
 
-When you're ready, run:
+## Getting Started
 
 ```bash
-npm run reset-project
+# Install dependencies
+npm install
+
+# Start the dev server
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+From there, open the app in a [development build](https://docs.expo.dev/develop/development-builds/introduction/), the [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/), [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/), or [Expo Go](https://expo.dev/go).
 
-## Learn more
+---
 
-To learn more about developing your project with Expo, look at the following resources:
+## Scripts
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+| Command                 | Description                    |
+| ----------------------- | ------------------------------ |
+| `npm run lint`          | Run ESLint                     |
+| `npm run format`        | Format with Prettier           |
+| `npm run format:check`  | Check formatting (CI-friendly) |
+| `npm run reset-project` | Reset to a blank app directory |
