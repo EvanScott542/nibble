@@ -1,10 +1,10 @@
+<table><tr><td>
+
 <div align="center">
 
 <!-- logo goes here -->
 
-# nibble
-
-**Cook it. Film it. Share it.**
+<img src="assets/images/readme-header.svg" alt="nibble — Cook it. Film it. Share it." width="400" />
 
 ---
 
@@ -60,3 +60,5 @@ From there, open the app in a [development build](https://docs.expo.dev/develop/
 | `npm run format`        | Format with Prettier           |
 | `npm run format:check`  | Check formatting (CI-friendly) |
 | `npm run reset-project` | Reset to a blank app directory |
+
+</td></tr></table>
