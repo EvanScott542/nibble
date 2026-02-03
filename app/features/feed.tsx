@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { FlatList, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 
-import RecipeButton from '@/components/recipe-button';
+import RecipeButton from '@/components/ui/recipe-button';
 import { FeedItem, fetchFeed } from '@/services/feed-service';
 
 export default function FeedComponent() {
