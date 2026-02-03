@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "title": "Recipe One",
+    "description": "A quick weeknight pasta with garlic and olive oil"
+  },
+  { "id": 2, "title": "Recipe Two", "description": "Crispy oven-baked chicken thighs with herbs" },
+  { "id": 3, "title": "Recipe Three", "description": "Fresh summer salad with citrus vinaigrette" },
+  { "id": 4, "title": "Recipe Four", "description": "Homemade sourdough bread from scratch" },
+  { "id": 5, "title": "Recipe Five", "description": "Spicy shrimp tacos with mango salsa" },
+  {
+    "id": 6,
+    "title": "Recipe Six",
+    "description": "Classic French onion soup with gruyère croutons"
+  },
+  { "id": 7, "title": "Recipe Seven", "description": "Pan-seared salmon with lemon butter sauce" },
+  {
+    "id": 8,
+    "title": "Recipe Eight",
+    "description": "Chocolate lava cakes with vanilla ice cream"
+  },
+  {
+    "id": 9,
+    "title": "Recipe Nine",
+    "description": "Thai basil stir-fry with tofu and vegetables"
+  },
+  { "id": 10, "title": "Recipe Ten", "description": "Fluffy buttermilk pancakes with maple syrup" }
+]
