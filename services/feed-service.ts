@@ -4,6 +4,8 @@ export type FeedItem = {
   id: number;
   title: string;
   description: string;
+  videoUrl: string;
+  thumbnailUrl?: string;
 };
 
 export async function fetchFeed(): Promise<FeedItem[]> {
