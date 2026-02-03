@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
-import { Video, ResizeMode, AVPlaybackStatus } from 'expo-av';
+import { Video, ResizeMode, AVPlaybackStatus, AVPlaybackSource } from 'expo-av';
 import { Play, Pause } from 'lucide-react-native';
 
 export interface VideoPlayerProps {
-  source: string;
+  source: AVPlaybackSource;
   isActive: boolean;
   posterSource?: string;
   isMuted?: boolean;
@@ -65,7 +65,7 @@ export default function VideoPlayer({
     <Pressable style={styles.container} onPress={togglePlayPause}>
       <Video
         ref={videoRef}
-        source={{ uri: source }}
+        source={source}
         style={styles.video}
         resizeMode={ResizeMode.COVER}
         isLooping

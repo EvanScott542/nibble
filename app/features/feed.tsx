@@ -3,10 +3,10 @@ import { FlatList, StyleSheet, Text, useWindowDimensions, View, ViewToken } from
 
 import RecipeButton from '@/components/ui/recipe-button';
 import VideoPlayer from '@/components/ui/video-player';
-import { FeedItem, fetchFeed } from '@/services/feed-service';
+import { ResolvedFeedItem, fetchFeed } from '@/services/feed-service';
 
 export default function FeedComponent() {
-  const [items, setItems] = useState<FeedItem[]>([]);
+  const [items, setItems] = useState<ResolvedFeedItem[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const { height } = useWindowDimensions();
 
@@ -36,7 +36,7 @@ export default function FeedComponent() {
         renderItem={({ item, index }) => (
           <View style={[styles.item, { height }]}>
             <VideoPlayer
-              source={item.videoUrl}
+              source={item.videoSource}
               isActive={index === activeIndex}
               posterSource={item.thumbnailUrl}
             />

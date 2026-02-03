@@ -1,9 +1,9 @@
 [
   {
     "id": 1,
-    "title": "Recipe One",
-    "description": "A quick weeknight pasta with garlic and olive oil",
-    "videoUrl": "https://www.youtube.com/shorts/_UeG2NXQ4Uc?feature=share"
+    "title": "Vegetable Chickpea Stew",
+    "description": "Family meal with Sad Papi",
+    "videoUrl": "local:sad-papi"
   },
   {
     "id": 2,
