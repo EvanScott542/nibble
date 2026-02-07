@@ -38,6 +38,30 @@ Film yourself cooking, and nibble automatically generates a written recipe from 
 
 ---
 
+## Directory Structure
+
+```
+app/                   # Expo Router screens and layouts (file-based routing)
+├── (tabs)/            # Tab navigation group
+│   ├── index.tsx      # Home screen (feed)
+│   ├── profile.tsx    # Profile screen
+│   └── _layout.tsx    # Tab bar configuration
+├── features/          # Feature-specific screens
+└── _layout.tsx        # Root layout with providers
+
+components/            # Reusable React components
+├── ui/                # UI primitives (buttons, icons)
+└── ...                # Shared components
+
+hooks/                 # Custom React hooks
+constants/             # App constants (theme, colors)
+services/              # Business logic and data fetching
+data/                  # Mock data and fixtures
+assets/                # Images, fonts, and static files
+```
+
+---
+
 ## Getting Started
 
 ```bash

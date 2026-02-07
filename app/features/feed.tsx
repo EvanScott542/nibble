@@ -1,11 +1,52 @@
-import RecipeButton from '@/components/recipe-button';
-import { StyleSheet, View } from 'react-native';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+import { useIsFocused } from '@react-navigation/native';
+import { ActivityIndicator, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 
-export default function FeedComponent() {
+import FeedList from '@/components/feed-list';
+import RecipeButton from '@/components/ui/recipe-button';
+import { Colors } from '@/constants/theme';
+import { useFeedData } from '@/hooks/use-feed-data';
+import { ResolvedFeedItem } from '@/types/feed';
+
+export default function FeedScreen() {
+  const { items, activeIndex, setActiveIndex, activeItem, isLoading, error } = useFeedData();
+  const isFocused = useIsFocused();
+  const { height: windowHeight } = useWindowDimensions();
+  const tabBarHeight = useBottomTabBarHeight();
+  const itemHeight = windowHeight - tabBarHeight;
+
+  const handleRecipePress = (item: ResolvedFeedItem) => {
+    // TODO: navigate to recipe screen
+    console.log('Recipe pressed:', item.title);
+  };
+
+  if (isLoading) {
+    return (
+      <View style={styles.centered}>
+        <ActivityIndicator size="large" color={Colors.accent} />
+      </View>
+    );
+  }
+
+  if (error) {
+    return (
+      <View style={styles.centered}>
+        <Text style={styles.errorText}>{error}</Text>
+      </View>
+    );
+  }
+
   return (
     <View style={styles.container}>
+      <FeedList
+        items={items}
+        activeIndex={activeIndex}
+        isFocused={isFocused}
+        onActiveChange={setActiveIndex}
+        itemHeight={itemHeight}
+      />
       <View style={styles.fabContainer}>
-        <RecipeButton />
+        <RecipeButton item={activeItem} onPress={handleRecipePress} />
       </View>
     </View>
   );
@@ -14,22 +55,21 @@ export default function FeedComponent() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'green',
+    backgroundColor: '#000',
+  },
+  centered: {
+    flex: 1,
+    backgroundColor: '#000',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  errorText: {
+    color: Colors.error,
+    fontSize: 16,
   },
   fabContainer: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
-    padding: 24,
-  },
-  headerImage: {
-    color: '#808080',
-    bottom: -90,
-    left: -35,
     position: 'absolute',
-  },
-  titleContainer: {
-    flexDirection: 'row',
-    gap: 8,
+    bottom: 16,
+    right: 24,
   },
 });
