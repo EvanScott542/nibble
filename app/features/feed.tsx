@@ -1,3 +1,4 @@
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { useEffect, useRef, useState } from 'react';
 import { FlatList, StyleSheet, Text, useWindowDimensions, View, ViewToken } from 'react-native';
 
@@ -8,7 +9,9 @@ import { ResolvedFeedItem, fetchFeed } from '@/services/feed-service';
 export default function FeedComponent() {
   const [items, setItems] = useState<ResolvedFeedItem[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
-  const { height } = useWindowDimensions();
+  const { height: windowHeight } = useWindowDimensions();
+  const tabBarHeight = useBottomTabBarHeight();
+  const itemHeight = windowHeight - tabBarHeight;
 
   const viewabilityConfig = useRef({
     itemVisiblePercentThreshold: 50,
@@ -33,8 +36,13 @@ export default function FeedComponent() {
         showsVerticalScrollIndicator={false}
         viewabilityConfig={viewabilityConfig}
         onViewableItemsChanged={onViewableItemsChanged}
+        getItemLayout={(_, index) => ({
+          length: itemHeight,
+          offset: itemHeight * index,
+          index,
+        })}
         renderItem={({ item, index }) => (
-          <View style={[styles.item, { height }]}>
+          <View style={[styles.item, { height: itemHeight }]}>
             <VideoPlayer
               source={item.videoSource}
               isActive={index === activeIndex}
@@ -68,7 +76,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     padding: 24,
-    paddingBottom: 120,
+    paddingBottom: 80,
   },
   title: {
     color: '#fff',
@@ -82,7 +90,7 @@ const styles = StyleSheet.create({
   },
   fabContainer: {
     position: 'absolute',
-    bottom: 24,
+    bottom: 16,
     right: 24,
   },
 });
