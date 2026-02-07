@@ -66,6 +66,16 @@ Platform-specific fonts configured via `Platform.select()`.
 - **Prettier** as default formatter with ESLint integration
 - Version releases managed with `npm run release` (generates changelog)
 
+## Git Workflow
+
+**IMPORTANT:** Never create commits or push to remote automatically. Always wait for explicit user instruction before:
+
+- Creating any git commits
+- Pushing changes to remote repositories
+- Creating or modifying branches
+
+The user will handle all git operations manually.
+
 ## Platform Support
 
 - iOS (with tablet support)
