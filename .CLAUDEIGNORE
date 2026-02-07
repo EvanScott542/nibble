@@ -1,0 +1,9 @@
+# EAS Build (if using EAS)
+.eas/
+
+# Expo Router cache (if using Expo Router)
+.expo-router/
+
+# Expo updates
+.expo-updates/
+
