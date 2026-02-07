@@ -18,14 +18,22 @@ export default function VideoPlayer({
 }: VideoPlayerProps) {
   const videoRef = useRef<Video>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [userPaused, setUserPaused] = useState(false);
   const [showIcon, setShowIcon] = useState(false);
   const iconTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    if (isActive) {
+    if (isActive && !userPaused) {
       videoRef.current?.playAsync();
     } else {
       videoRef.current?.pauseAsync();
+    }
+  }, [isActive, userPaused]);
+
+  // Reset user pause when scrolled away so video resumes on return
+  useEffect(() => {
+    if (!isActive) {
+      setUserPaused(false);
     }
   }, [isActive]);
 
@@ -37,8 +45,10 @@ export default function VideoPlayer({
 
   const togglePlayPause = async () => {
     if (isPlaying) {
+      setUserPaused(true);
       await videoRef.current?.pauseAsync();
     } else {
+      setUserPaused(false);
       await videoRef.current?.playAsync();
     }
 

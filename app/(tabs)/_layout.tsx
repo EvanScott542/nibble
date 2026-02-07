@@ -18,14 +18,14 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          tabBarIcon: ({ color }) => <House></House>,
+          tabBarIcon: ({ color }) => <House color={color} />,
           tabBarShowLabel: false,
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
-          tabBarIcon: ({ color }) => <UserRound></UserRound>,
+          tabBarIcon: ({ color }) => <UserRound color={color} />,
           tabBarShowLabel: false,
         }}
       />

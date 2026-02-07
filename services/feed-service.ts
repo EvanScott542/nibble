@@ -2,18 +2,9 @@ import { AVPlaybackSource } from 'expo-av';
 
 import { getVideoAsset } from '@/constants/video-assets';
 import feedData from '@/data/feed.json';
+import { FeedItem, ResolvedFeedItem } from '@/types/feed';
 
-export type FeedItem = {
-  id: number;
-  title: string;
-  description: string;
-  videoUrl: string;
-  thumbnailUrl?: string;
-};
-
-export type ResolvedFeedItem = Omit<FeedItem, 'videoUrl'> & {
-  videoSource: AVPlaybackSource;
-};
+export type { FeedItem, ResolvedFeedItem };
 
 function resolveVideoSource(videoUrl: string): AVPlaybackSource {
   if (videoUrl.startsWith('local:')) {

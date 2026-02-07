@@ -1,62 +1,52 @@
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
-import { useEffect, useRef, useState } from 'react';
-import { FlatList, StyleSheet, Text, useWindowDimensions, View, ViewToken } from 'react-native';
+import { useIsFocused } from '@react-navigation/native';
+import { ActivityIndicator, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 
+import FeedList from '@/components/feed-list';
 import RecipeButton from '@/components/ui/recipe-button';
-import VideoPlayer from '@/components/ui/video-player';
-import { ResolvedFeedItem, fetchFeed } from '@/services/feed-service';
+import { Colors } from '@/constants/theme';
+import { useFeedData } from '@/hooks/use-feed-data';
+import { ResolvedFeedItem } from '@/types/feed';
 
-export default function FeedComponent() {
-  const [items, setItems] = useState<ResolvedFeedItem[]>([]);
-  const [activeIndex, setActiveIndex] = useState(0);
+export default function FeedScreen() {
+  const { items, activeIndex, setActiveIndex, activeItem, isLoading, error } = useFeedData();
+  const isFocused = useIsFocused();
   const { height: windowHeight } = useWindowDimensions();
   const tabBarHeight = useBottomTabBarHeight();
   const itemHeight = windowHeight - tabBarHeight;
 
-  const viewabilityConfig = useRef({
-    itemVisiblePercentThreshold: 50,
-  }).current;
+  const handleRecipePress = (item: ResolvedFeedItem) => {
+    // TODO: navigate to recipe screen
+    console.log('Recipe pressed:', item.title);
+  };
 
-  const onViewableItemsChanged = useRef(({ viewableItems }: { viewableItems: ViewToken[] }) => {
-    if (viewableItems.length > 0 && viewableItems[0].index !== null) {
-      setActiveIndex(viewableItems[0].index);
-    }
-  }).current;
+  if (isLoading) {
+    return (
+      <View style={styles.centered}>
+        <ActivityIndicator size="large" color={Colors.accent} />
+      </View>
+    );
+  }
 
-  useEffect(() => {
-    fetchFeed().then(setItems);
-  }, []);
+  if (error) {
+    return (
+      <View style={styles.centered}>
+        <Text style={styles.errorText}>{error}</Text>
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
-      <FlatList
-        data={items}
-        keyExtractor={(item) => String(item.id)}
-        pagingEnabled
-        showsVerticalScrollIndicator={false}
-        viewabilityConfig={viewabilityConfig}
-        onViewableItemsChanged={onViewableItemsChanged}
-        getItemLayout={(_, index) => ({
-          length: itemHeight,
-          offset: itemHeight * index,
-          index,
-        })}
-        renderItem={({ item, index }) => (
-          <View style={[styles.item, { height: itemHeight }]}>
-            <VideoPlayer
-              source={item.videoSource}
-              isActive={index === activeIndex}
-              posterSource={item.thumbnailUrl}
-            />
-            <View style={styles.overlay} pointerEvents="none">
-              <Text style={styles.title}>{item.title}</Text>
-              <Text style={styles.description}>{item.description}</Text>
-            </View>
-          </View>
-        )}
+      <FeedList
+        items={items}
+        activeIndex={activeIndex}
+        isFocused={isFocused}
+        onActiveChange={setActiveIndex}
+        itemHeight={itemHeight}
       />
       <View style={styles.fabContainer}>
-        <RecipeButton />
+        <RecipeButton item={activeItem} onPress={handleRecipePress} />
       </View>
     </View>
   );
@@ -67,26 +57,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000',
   },
-  item: {
+  centered: {
     flex: 1,
+    backgroundColor: '#000',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  overlay: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    padding: 24,
-    paddingBottom: 80,
-  },
-  title: {
-    color: '#fff',
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  description: {
-    color: 'rgba(255, 255, 255, 0.8)',
+  errorText: {
+    color: Colors.error,
     fontSize: 16,
-    marginTop: 4,
   },
   fabContainer: {
     position: 'absolute',
