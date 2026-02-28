@@ -57,6 +57,8 @@ hooks/                 # Custom React hooks
 constants/             # App constants (theme, colors)
 services/              # Business logic and data fetching
 data/                  # Mock data and fixtures
+types/                 # Shared TypeScript type definitions
+docs/                  # Architecture and feature documentation
 assets/                # Images, fonts, and static files
 ```
 
