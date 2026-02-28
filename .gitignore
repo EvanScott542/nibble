@@ -41,4 +41,10 @@ app-example
 # generated native folders
 /ios
 /android
+
+# Nx
+.nx/cache
+.nx/workspace-data
+
+# agents
 .claude/settings.local.json
