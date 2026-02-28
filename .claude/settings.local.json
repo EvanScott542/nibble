@@ -1,5 +1,15 @@
 {
   "permissions": {
-    "allow": ["Bash(tree:*)", "Bash(npm ls:*)", "Bash(npx expo install:*)", "Bash(npm run lint)"]
+    "allow": [
+      "Bash(tree:*)",
+      "Bash(npm ls:*)",
+      "Bash(npx expo install:*)",
+      "Bash(npm run lint)",
+      "Bash(git mv:*)",
+      "Bash(npm install:*)",
+      "Bash(npx nx:*)",
+      "Bash(node:*)",
+      "Bash(npx eslint:*)"
+    ]
   }
 }

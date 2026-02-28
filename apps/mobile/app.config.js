@@ -1,8 +1,7 @@
-import { ExpoConfig, ConfigContext } from 'expo/config';
+const { version } = require('../../package.json');
 
-const { version } = require('./package.json');
-
-export default ({ config }: ConfigContext): ExpoConfig => ({
+/** @type {import('expo/config').ConfigContext} */
+module.exports = ({ config }) => ({
   ...config,
   name: 'nibble',
   slug: 'nibble',

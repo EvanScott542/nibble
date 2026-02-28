@@ -1,0 +1,9 @@
+{
+  "name": "@recipereel/mobile",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "private": true,
+  "dependencies": {
+    "expo": "~54.0.33"
+  }
+}

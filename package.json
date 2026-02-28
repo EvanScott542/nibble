@@ -1,21 +1,24 @@
 {
-  "name": "nibble",
-  "main": "expo-router/entry",
+  "name": "recipereel",
   "version": "1.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "start": "expo start",
-    "reset-project": "node ./scripts/reset-project.js",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
-    "lint": "expo lint",
+    "start": "nx start mobile",
+    "android": "nx run-android mobile",
+    "ios": "nx run-ios mobile",
+    "web": "nx start mobile --web",
+    "lint": "nx run-many --target=lint --all",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky",
     "release": "commit-and-tag-version",
     "release:minor": "commit-and-tag-version --release-as minor",
     "release:major": "commit-and-tag-version --release-as major",
-    "release:dry": "commit-and-tag-version --dry-run"
+    "release:dry": "commit-and-tag-version --dry-run",
+    "reset-project": "node ./scripts/reset-project.js"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
