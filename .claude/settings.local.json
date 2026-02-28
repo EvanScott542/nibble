@@ -9,7 +9,11 @@
       "Bash(npm install:*)",
       "Bash(npx nx:*)",
       "Bash(node:*)",
-      "Bash(npx eslint:*)"
+      "Bash(npx eslint:*)",
+      "Bash(lsof:*)",
+      "Bash(pkill:*)",
+      "Bash(python3:*)",
+      "Bash(git:*)"
     ]
   }
 }
