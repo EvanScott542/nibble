@@ -61,18 +61,35 @@
   "devDependencies": {
     "@commitlint/cli": "^20.4.1",
     "@commitlint/config-conventional": "^20.4.1",
+    "@expo/cli": "^54.0.23",
     "@nx/expo": "^22.5.3",
+    "@nx/jest": "22.5.3",
     "@nx/js": "^22.5.3",
+    "@swc-node/register": "~1.11.1",
+    "@swc/core": "~1.15.5",
+    "@swc/helpers": "~0.5.18",
+    "@types/jest": "^30.0.0",
+    "@types/node": "20.19.9",
     "@types/react": "~19.1.0",
     "commit-and-tag-version": "^12.6.1",
     "eslint": "^9.25.0",
     "eslint-config-expo": "~10.0.0",
     "eslint-config-prettier": "^10.1.8",
     "husky": "^9.1.7",
+    "jest": "^30.0.2",
+    "jest-environment-node": "^30.0.2",
+    "jest-util": "^30.0.2",
+    "jsonc-eslint-parser": "^2.1.0",
     "lint-staged": "^16.2.7",
     "nx": "^22.5.3",
     "prettier": "^3.8.1",
+    "ts-jest": "^29.4.0",
+    "ts-node": "10.9.1",
+    "tslib": "^2.3.0",
     "typescript": "~5.9.2"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "private": true
 }
