@@ -3,5 +3,15 @@
   "name": "mobile",
   "projectType": "application",
   "sourceRoot": "apps/mobile",
-  "tags": ["platform:mobile", "scope:app"]
+  "tags": ["platform:mobile", "scope:app"],
+  "targets": {
+    "serve": {
+      "command": "expo start --localhost",
+      "continuous": true,
+      "options": {
+        "cwd": "apps/mobile",
+        "args": ["--clear"]
+      }
+    }
+  }
 }
